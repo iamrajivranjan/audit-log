@@ -38,7 +38,6 @@ auditLog.get("/list", async (req, res) => {
 auditLog.delete("/clear", async (req, res) => {
   try {
     const query = req.query;
-    console.log(JSON.stringify(query));
     if (query.key === process.env.DELETE_KEY) {
       await AuditLog.deleteMany({});
       res.status(200).json({ message: "All audit logs deleted" });
